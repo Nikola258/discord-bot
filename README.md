@@ -282,15 +282,19 @@ Bot Discord permissions:
 | `chunky`           | 70-90  |
 | `fatass`           | 90-100 |
 
-| Disocord face shape |
-| ------------------- |
-| `oval`              |
-| `round`             |
-| `square`            |
-| `triangle`          |
-| `oblong`            |
-| `rectangle`         |
+
+|Detected face shape|Funny Discord role|
+|---|---|
+|`Oval`|🥚 Egghead|
+|`Round`|🥔 Potato|
+|`Square`|🧀 Cheese Block|
+|`Triangle`|🍓 Strawberry|
+|`Oblong`|🦒 Giraffe|
+|`Rectangle`|🐊 Crocodile|
+
 
 ### Hosting methode
 
 Coming soon...
+
+
