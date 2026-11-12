@@ -49,20 +49,18 @@ def get_user(user_id: str) -> dict | None:
     return data["users"].get(str(user_id))
 
 
-def record_scan(user_id: str, face_shape: str, score: int, fat_level: str) -> None:
+def record_scan(user_id: str, username: str, face_shape: str, score: int, fat_level: str) -> None:
     """
     Record a scan result:
-    - Updates the user's personal entry (last result + scan count)
+    - Updates the user's personal entry (last result + scan count + username)
     - Updates server-wide aggregate counts and recalculates average score
-
-    No usernames or photos are stored — only the Discord user ID and results.
     """
     data = load()
     user_id = str(user_id)
 
-    # --- Per-user entry (non-anonymous, used to avoid duplicate aggregate counts) ---
     user = data["users"].get(user_id, {"scans": 0})
     user["scans"] = user.get("scans", 0) + 1
+    user["username"] = username
     user["last_shape"] = face_shape
     user["last_score"] = score
     user["last_fat_level"] = fat_level
