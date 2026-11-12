@@ -89,6 +89,7 @@ class FatCheckCommands(commands.Cog):
         # --- 6. Save to JSON database ---
         statistics.record_scan(
             user_id=str(interaction.user.id),
+            username=str(interaction.user.display_name),
             face_shape=face_shape,
             score=score,
             fat_level=fat_level,
@@ -108,6 +109,131 @@ class FatCheckCommands(commands.Cog):
             f"**Fat score:** {score}/100  `[{bar}]`\n"
             f"**Level:** {fat_level}{fat_role_text}\n\n"
             f"*(Just for fun — don't take it seriously!)*"
+        )
+
+
+    @app_commands.command(
+        name="topfat",
+        description="Shows the top 10 fattest people on the server.",
+    )
+    async def topfat(self, interaction: discord.Interaction):
+        data = statistics.load()
+        users = data.get("users", {})
+
+        if not users:
+            await interaction.response.send_message(
+                "No scans yet — be the first to use `/fatcheck`!"
+            )
+            return
+
+        top = sorted(
+            users.items(),
+            key=lambda x: x[1].get("last_score", 0),
+            reverse=True,
+        )[:10]
+
+        lines = []
+        medals = ["🥇", "🥈", "🥉"]
+
+        for i, (user_id, entry) in enumerate(top):
+            rank = medals[i] if i < 3 else f"**#{i + 1}**"
+            score = entry.get("last_score", 0)
+            fat_level = entry.get("last_fat_level", "unknown")
+            username = entry.get("username", f"<@{user_id}>")
+            filled = round(score / 10)
+            bar = "█" * filled + "░" * (10 - filled)
+            lines.append(f"{rank} **{username}** — {score}/100 `[{bar}]` {fat_level}")
+
+        await interaction.response.send_message(
+            f"**🍔 Top 10 fattest people on the server**\n\n" + "\n".join(lines)
+        )
+
+    @app_commands.command(
+        name="topskinny",
+        description="Shows the top 10 skinniest people on the server.",
+    )
+    async def topskinny(self, interaction: discord.Interaction):
+        data = statistics.load()
+        users = data.get("users", {})
+
+        if not users:
+            await interaction.response.send_message(
+                "No scans yet — be the first to use `/fatcheck`!"
+            )
+            return
+
+        top = sorted(
+            users.items(),
+            key=lambda x: x[1].get("last_score", 0),
+        )[:10]
+
+        lines = []
+        medals = ["🥇", "🥈", "🥉"]
+
+        for i, (user_id, entry) in enumerate(top):
+            rank = medals[i] if i < 3 else f"**#{i + 1}**"
+            score = entry.get("last_score", 0)
+            fat_level = entry.get("last_fat_level", "unknown")
+            username = entry.get("username", f"<@{user_id}>")
+            filled = round(score / 10)
+            bar = "█" * filled + "░" * (10 - filled)
+            lines.append(f"{rank} **{username}** — {score}/100 `[{bar}]` {fat_level}")
+
+        await interaction.response.send_message(
+            f"**🦴 Top 10 skinniest people on the server**\n\n" + "\n".join(lines)
+        )
+
+    @app_commands.command(
+        name="list",
+        description="Shows 10 people with a similar fat score to yours.",
+    )
+    async def list_similar(self, interaction: discord.Interaction):
+        data = statistics.load()
+        users = data.get("users", {})
+        user_id = str(interaction.user.id)
+
+        if user_id not in users:
+            await interaction.response.send_message(
+                "You haven't done a `/fatcheck` yet — scan yourself first!"
+            )
+            return
+
+        my_score = users[user_id].get("last_score", 0)
+
+        # Sort all users by how close their score is to yours, exclude yourself
+        others = [
+            (uid, entry) for uid, entry in users.items() if uid != user_id
+        ]
+
+        if not others:
+            await interaction.response.send_message(
+                "No one else has scanned yet — get your friends to use `/fatcheck`!"
+            )
+            return
+
+        closest = sorted(
+            others,
+            key=lambda x: abs(x[1].get("last_score", 0) - my_score),
+        )[:10]
+
+        lines = []
+        for uid, entry in closest:
+            score = entry.get("last_score", 0)
+            fat_level = entry.get("last_fat_level", "unknown")
+            username = entry.get("username", f"<@{uid}>")
+            diff = score - my_score
+            diff_text = f"+{diff}" if diff > 0 else str(diff)
+            filled = round(score / 10)
+            bar = "█" * filled + "░" * (10 - filled)
+            lines.append(f"**{username}** — {score}/100 `[{bar}]` {fat_level} ({diff_text})")
+
+        my_filled = round(my_score / 10)
+        my_bar = "█" * my_filled + "░" * (10 - my_filled)
+
+        await interaction.response.send_message(
+            f"**👥 People with a similar score to you**\n"
+            f"Your score: **{my_score}/100** `[{my_bar}]`\n\n"
+            + "\n".join(lines)
         )
 
 

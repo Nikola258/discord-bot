@@ -10,9 +10,15 @@ class FatCheckerBot(commands.Bot):
         await self.load_extension("bot.events")
         await self.load_extension("bot.commands")
 
-        # Sync slash commands globally
+        # Sync slash commands to your server instantly (guild sync is immediate)
+        guild = discord.Object(id=1287005256731066469)
+        self.tree.copy_global_to(guild=guild)
+        await self.tree.sync(guild=guild)
+
+        # Clear global commands to avoid duplicates
+        self.tree.clear_commands(guild=None)
         await self.tree.sync()
-        print("Slash commands synced.")
+        print("Slash commands synced to guild.")
 
 
 intents = discord.Intents.default()
