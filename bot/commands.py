@@ -1,3 +1,5 @@
+import random
+
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -9,9 +11,60 @@ from bot.roles import assign_face_shape_role, assign_fat_level_role, FACE_SHAPE_
 from database import statistics
 
 
+HEALTH_TIPS = (
+    "Drink water regularly throughout the day",
+    "Take a short walk each day",
+    "Include fruits and vegetables in your meals",
+    "Aim for 7–9 hours of sleep when you can",
+    "Take a break from sitting now and then",
+    "Try moving your body, even for 10 minutes",
+    "Eat regular meals that work for you",
+    "Spend a little time outdoors",
+    "Brush your teeth twice a day",
+    "Make time to care for your mental wellbeing",
+)
+
+
 class FatCheckCommands(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+
+    @app_commands.command(
+        name="tips",
+        description="Get a healthy-living tip and free food and exercise resources.",
+    )
+    async def tips(self, interaction: discord.Interaction):
+        await interaction.response.send_message(
+            f"**A little healthy-living tip**\n{random.choice(HEALTH_TIPS)}\n\n"
+            "**Free resources**\n"
+            "🍽️ [BBC Good Food — healthy recipes]"
+            "(https://www.bbcgoodfood.com/recipes/collection/healthy-recipes)\n"
+            "🏋️ [DAREBEE — home workouts]"
+            "(https://darebee.com/)\n"
+            "🧘 [NHS — exercise and activity resources]"
+            "(https://www.nhs.uk/better-health/get-active/how-to-be-more-active/)\n\n"
+            "*General wellbeing ideas only, not medical advice.*"
+        )
+
+    @app_commands.command(
+        name="info",
+        description="Show what the bot does and which commands are available.",
+    )
+    async def info(self, interaction: discord.Interaction):
+        await interaction.response.send_message(
+            "**About this bot**\n"
+            "Upload a photo with `/fatcheck` for an face shape role, "
+            "funny fat score and matching role for it\n\n"
+            "**Available commands**\n"
+            "• `/fatcheck` - Analyze an uploaded photo\n"
+            "• `/info` - Show this information\n"
+            "• `/tips` - Get a healthy-living tip and free resources\n\n"
+            "**Planned commands**\n"
+            "• `/list` - List users near a score\n"
+            "• `/topfat` and `/topskinny` - Score rankings\n\n"
+            "*The results are just for fun, are not a health assessment, "
+            "and should not be taken seriously.*"
+        )
 
     @app_commands.command(
         name="fatcheck",
