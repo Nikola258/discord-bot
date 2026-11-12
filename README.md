@@ -260,16 +260,16 @@ Bot Discord permissions:
 |Read Message History|Read relevant messages|
 |Attach Files|Only if sending image attachments|
 
-### Possible bot commands
+### Bot commands
 
-| Command            | Responsibility                                                                                                        |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `/fatcheck {foto}` | The main functions to check your face structure and get score with role                                               |
-| `/tips`            | This function gives you tips and tricks to be healthy(websites with cooking recipes and websites with free exercises) |
-| `/list`            | Gives list of people in the range of your score(10ppl)                                                                |
-| `/info`            | Gives info over the bot possible commands and a disclaimer to not take it seriously                                   |
-| `/topfat`          | Gives top 10 of people on fat side                                                                                    |
-| `/topskinny`       | Gives top 10 of people on skinny side                                                                                 |
+| Command | Responsibility | Status |
+| --- | --- | --- |
+| `/fatcheck {foto}` | Analyze a photo and assign matching roles. | Available |
+| `/info` | Show bot information, commands, and a disclaimer. | Available |
+| `/tips` | Show a random healthy-living tip and free cooking and exercise resources. | Available |
+| `/list` | List users near a score. | Planned |
+| `/topfat` | Show the highest scores. | Planned |
+| `/topskinny` | Show the lowest scores. | Planned |
 
 ### Used discord roles
 
@@ -296,5 +296,3 @@ Bot Discord permissions:
 ### Hosting methode
 
 Coming soon...
-
-
