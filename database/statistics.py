@@ -5,7 +5,10 @@ DB_PATH = os.path.join(os.path.dirname(__file__), "statistics.json")
 
 
 def load() -> dict:
-    """Load the full statistics database from disk."""
+    """Load the full statistics database from disk. Creates the file if missing."""
+    if not os.path.exists(DB_PATH):
+        save({})
+        return {}
     with open(DB_PATH, "r") as f:
         return json.load(f)
 
