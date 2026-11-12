@@ -18,7 +18,7 @@ Project for school, a discord bot that makes the server more fun by checking the
 - [ ] Top list of most and least fat people
 
 
-### Technologies I plan to use:
+### Technologies we plan to use:
 
 - Discord API - for roles [API reference](https://docs.discord.com/developers/reference)
 - Python - Main language

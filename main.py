@@ -1,4 +1,3 @@
-
 import discord
 from discord.ext import commands
 
@@ -7,7 +6,13 @@ from config import DISCORD_TOKEN
 
 class FatCheckerBot(commands.Bot):
     async def setup_hook(self):
+        # Load cogs
         await self.load_extension("bot.events")
+        await self.load_extension("bot.commands")
+
+        # Sync slash commands globally
+        await self.tree.sync()
+        print("Slash commands synced.")
 
 
 intents = discord.Intents.default()
