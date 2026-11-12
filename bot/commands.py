@@ -87,15 +87,12 @@ class FatCheckCommands(commands.Cog):
         fat_role = await assign_fat_level_role(interaction.user, fat_level)
 
         # --- 6. Save to JSON database ---
-        user_id = str(interaction.user.id)
-        existing = statistics.get_user(user_id) or {}
-        statistics.update_user(user_id, {
-            "username": str(interaction.user),
-            "scans": existing.get("scans", 0) + 1,
-            "last_shape": face_shape,
-            "last_score": score,
-            "last_fat_level": fat_level,
-        })
+        statistics.record_scan(
+            user_id=str(interaction.user.id),
+            face_shape=face_shape,
+            score=score,
+            fat_level=fat_level,
+        )
 
         # --- 7. Build score bar (visual) ---
         filled = round(score / 10)
