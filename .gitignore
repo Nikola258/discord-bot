@@ -1,1 +1,27 @@
+# Secrets
 .env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv*/
+.pytest_cache/
+*.py[cod]
+
+# Temporary images
+temp/
+uploads/
+
+# IDE
+.idea/
+.vscode/
+
+# Testing
+.pytest_cache/
+
+# Logs
+*.log
+
+# Database (keep empty template in git, ignore runtime data)
+database/statistics.json
