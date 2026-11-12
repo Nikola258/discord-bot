@@ -22,3 +22,6 @@ uploads/
 
 # Logs
 *.log
+
+# Database (keep empty template in git, ignore runtime data)
+database/statistics.json
