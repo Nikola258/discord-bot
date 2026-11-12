@@ -114,8 +114,8 @@ DELETE_PROCESSED_IMAGES=true
 IMAGE_RETENTION_SECONDS=60
 
 # Processing
-MAX_IMAGE_SIZE_MB=8
-IMAGE_TIMEOUT_SECONDS=15
+MAX_IMAGE_SIZE_MB=20
+IMAGE_TIMEOUT_SECONDS=20
 
 # Statistics
 STATISTICS_FILE=database/statistics.json
@@ -273,26 +273,27 @@ Bot Discord permissions:
 
 ### Used discord roles
 
-| Disocord fun Roles | level  |
-| ------------------ | ------ |
-| `stick`            | 0-17   |
-| `feather`          | 17-34  |
-| `skinny`           | 34-50  |
-| `fat`              | 50-70  |
-| `chunky`           | 70-90  |
-| `fatass`           | 90-100 |
+| Disocord fun Roles | funny role | Role ID             |
+| ------------------ | ---------- | ------------------- |
+| `stick`            | 🪾stick    | 1570370456983310366 |
+| `feather`          | 🪶feather  | 1570370492806995988 |
+| `skinny`           | 🦴skinny   | 1570370511681355776 |
+| `fat`              | 🫃🏻fat    | 1570370535400149003 |
+| `chunky`           | 🍪chunky   | 1570370559294832732 |
+| `fatass`           | 🍔fatass   | 1570370853504286783 |
 
 
-|Detected face shape|Funny Discord role|
-|---|---|
-|`Oval`|🥚 Egghead|
-|`Round`|🥔 Potato|
-|`Square`|🧀 Cheese Block|
-|`Triangle`|🍓 Strawberry|
-|`Oblong`|🦒 Giraffe|
-|`Rectangle`|🐊 Crocodile|
+
+| Face shape  | Funny role      | Role ID             |
+| ----------- | --------------- | ------------------- |
+| `oval`      | 🥚 Egghead      | 1570369164080586822 |
+| `round`     | 🥔 Potato       | 1570369839564857424 |
+| `square`    | 🧀 Cheese Block | 1570369865166884924 |
+| `triangle`  | 🔻Doritos       | 1570369904102871100 |
+| `oblong`    | 🦒 Giraffe      | 1570370162106830918 |
+| `rectangle` | 🐊 Crocodile    | 1570370410099253255 |
 
 
 ### Hosting methode
 
-Coming soon...
+Docker
