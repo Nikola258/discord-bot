@@ -34,36 +34,49 @@ Project for school, a discord bot that makes the server more fun by checking the
 ### File structure i would use
 
 ```File 
+
 fat-checker-bot/
 │
 ├── main.py
-│
 ├── config.py
 │
 ├── bot/
+│   ├── __init__.py
 │   ├── commands.py
 │   ├── events.py
 │   └── roles.py
 │
 ├── vision/
+│   ├── __init__.py
 │   ├── image_processing.py
 │   ├── face_detection.py
 │   └── face_classifier.py
 │
 ├── database/
+│   ├── __init__.py
 │   ├── statistics.py
 │   └── statistics.json
 │
 ├── utils/
+│   ├── __init__.py
 │   ├── cooldown.py
-│   └── image_cleanup.py
+│   ├── image_cleanup.py
+│   └── validation.py
 │
 ├── models/
 │   └── face_landmarker.task
 │
+├── tests/
+│   ├── test_image_processing.py
+│   ├── test_face_detection.py
+│   └── test_statistics.py
+│
 ├── requirements.txt
 ├── .env
-└── .gitignore
+├── .env.example
+├── .gitignore
+└── README.md
+
 ```
 
 What each file does:
@@ -175,6 +188,48 @@ pip install discord.py python-dotenv
 ```
 
 For the facial-analysis version, you can separately install OpenCV and MediaPipe.
+
+### Requirements
+
+```requirements.txt
+
+discord.py
+python-dotenv
+opencv-python
+mediapipe
+numpy
+pytest
+
+```
+
+### Git Ignire
+
+```gitignore
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Temporary images
+temp/
+uploads/
+
+# IDE
+.idea/
+.vscode/
+
+# Testing
+.pytest_cache/
+
+# Logs
+*.log
+
+```
 
 ### Discord role configuration
 
