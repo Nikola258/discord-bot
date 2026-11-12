@@ -4,18 +4,18 @@ Project for school, a discord bot that makes the server more fun by checking the
 
 ### Bot functionality's:
 
-- [ ] Checks that an image was uploaded in fat check channel [priority:: high] [status:: to-do]
-- [ ] Estimates visible face shape in the image [priority:: high]
-- [ ] Gives the user their result with a role [priority:: high]
-- [ ] Saves the anonymous data to a JSON(used to count average obesity level in the server) [priority:: high]
+- [ ] Checks that an image was uploaded in fat check channel 
+- [ ] Estimates visible face shape in the image 
+- [ ] Gives the user their result with a role
+- [ ] Saves the anonymous data to a JSON(used to count average obesity level in the server)
 
 ### Extra functionality(things that can be useful to make later):
 
-- [ ] Remove the user's previous face-shape role when assigning a new one [priority:: medium]
-- [ ] Delete uploaded photos after processing [priority:: medium]
-- [ ] Prevent users from checking repeatedly(spam) [priority:: medium]
-- [ ] Command !tips for extra tips how to stay healthy [priority:: low]
-- [ ] Top list of most and least fat people [priority:: low]
+- [ ] Remove the user's previous face-shape role when assigning a new one 
+- [ ] Delete uploaded photos after processing
+- [ ] Prevent users from checking repeatedly(spam) 
+- [ ] Command !tips for extra tips how to stay healthy
+- [ ] Top list of most and least fat people
 
 
 ### Technologies I plan to use:

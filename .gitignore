@@ -1,4 +1,22 @@
+# Secrets
 .env
 
-.idea/
+# Python
 __pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Temporary images
+temp/
+uploads/
+
+# IDE
+.idea/
+.vscode/
+
+# Testing
+.pytest_cache/
+
+# Logs
+*.log
