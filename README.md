@@ -287,15 +287,15 @@ No incoming public port is required for the bot, and the container does not publ
 ### How to update the bot
 
 The bot is updated manually when new code is pushed to GitHub.
-#### Step 1 – Edit the code
+#### 1 Edit the code
 
 Make changes to the project files locally.
 
-#### Step 2 – Push changes to GitHub
+#### 2 Push changes to GitHub
 
 Commit and push the changes to the `main` branch.
 
-#### Step 3 – Pull the latest code on the server
+#### 3 Pull the latest code on the server
 
 Connect to the Ubuntu Server VM and run:
 
@@ -324,7 +324,8 @@ This builds a new image using the updated source code and recreates the containe
 
 The same can be done through Dockge by updating the source checkout first and then redeploying the stack with a build.
 
-### Hosting limitations
+
+## Hosting limitations
 
 The current hosting setup is a manual deployment process.
 
