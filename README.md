@@ -193,9 +193,9 @@ The bot requires those permissions:
 | `/fatcheck {foto}` | Analyze a photo and assign matching roles. | Available |
 | `/info` | Show bot information, commands, and a disclaimer. | Available |
 | `/tips` | Show a random healthy-living tip and free cooking and exercise resources. | Available |
-| `/list` | List users near a score. | Planned |
-| `/topfat` | Show the highest scores. | Planned |
-| `/topskinny` | Show the lowest scores. | Planned |
+| `/list` | List users near a score. | Available |
+| `/topfat` | Show the highest scores. | Available |
+| `/topskinny` | Show the lowest scores. | Available |
 
 ### Used discord roles
 
@@ -343,14 +343,14 @@ Automatic deployment using GitHub Actions or another CI/CD solution could be add
 
 ## TODO
 
-**### Automated testing**
+### Automated testing
 - [ ] Create automated tests using `pytest`
 - [ ] Add `tests/test_image_processing.py` to test image loading and processing
 - [ ] Add `tests/test_face_detection.py` to test facial landmark detection
 - [ ] Add `tests/test_statistics.py` to test JSON statistics handling
 - [ ] Integrate automated tests into GitHub Actions
 
-**### Hosting and deployment**
+### Hosting and deployment
 - [ ] Implement automatic deployment using GitHub Actions or another CI/CD solution
 - [ ] Automatically pull the latest code from GitHub when changes are pushed
 - [ ] Automatically rebuild and redeploy the Docker container after successful updates
