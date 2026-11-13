@@ -23,3 +23,28 @@ python -c "import numpy as np; from vision.face_detection import FaceDetector; d
 python -c "from vision.face_classifier import classify_face_shape; print('Classifier imported successfully')"
 
 ```
+
+## Automated testing (planned)
+
+Currently, the vision components are tested manually using Python commands. In the future, these manual tests should be replaced with automated tests using **pytest**.
+
+The automated tests should be stored here:
+
+```text
+tests/
+├── test_image_processing.py
+├── test_face_detection.py
+└── test_statistics.py
+```
+
+**Planned test files:**
+
+| File | Responsibility |
+|---|---|
+| `test_image_processing.py` | Tests image loading, decoding, resizing, and invalid image handling |
+| `test_face_detection.py` | Tests MediaPipe model initialization, facial landmark detection, and handling images without faces |
+| `test_statistics.py` | Tests saving, loading, and updating anonymous statistics in the JSON file |
+
+The tests should use `pytest` and, where possible, sample images or mock objects instead of requiring a live Discord connection.
+
+In the future, these tests could also be executed automatically using GitHub Actions whenever new code is pushed to the repository or a pull request is created.

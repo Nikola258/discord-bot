@@ -18,7 +18,7 @@ Project for school, a discord bot that makes the server more fun by analyzing us
 - [x] Top list of most and least fat people
 
 
-### ## Technologies
+## Technologies
 
 - Discord API - for roles [API reference](https://docs.discord.com/developers/reference)
 - Python - Main language
@@ -74,6 +74,7 @@ fat-checker-bot/
 ├── models/
 │   └── face_landmarker.task
 │
+├── tests/  (planned automated tests)    
 │
 ├── requirements.txt
 ├── .env
@@ -306,7 +307,7 @@ git pull origin main
 
 Downloads the latest changes from GitHub.
 
-#### Step 4 – Rebuild and redeploy the container
+#### 4 Rebuild and redeploy the container
 
 Move to the Docker deployment directory:
 
@@ -338,3 +339,18 @@ Automatic deployment using GitHub Actions or another CI/CD solution could be add
 - Users should voluntarily submit their own photos
 - Statistics may contain Discord user IDs and usernames
 - Photos should not displayed on chat or saved
+
+
+## TODO
+
+**### Automated testing**
+- [ ] Create automated tests using `pytest`
+- [ ] Add `tests/test_image_processing.py` to test image loading and processing
+- [ ] Add `tests/test_face_detection.py` to test facial landmark detection
+- [ ] Add `tests/test_statistics.py` to test JSON statistics handling
+- [ ] Integrate automated tests into GitHub Actions
+
+**### Hosting and deployment**
+- [ ] Implement automatic deployment using GitHub Actions or another CI/CD solution
+- [ ] Automatically pull the latest code from GitHub when changes are pushed
+- [ ] Automatically rebuild and redeploy the Docker container after successful updates
