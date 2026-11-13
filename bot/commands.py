@@ -37,11 +37,11 @@ class FatCheckCommands(commands.Cog):
         await interaction.response.send_message(
             f"**A little healthy-living tip**\n{random.choice(HEALTH_TIPS)}\n\n"
             "**Free resources**\n"
-            "🍽️ [BBC Good Food — healthy recipes]"
+            " [BBC Good Food - healthy recipes]"
             "(https://www.bbcgoodfood.com/recipes/collection/healthy-recipes)\n"
-            "🏋️ [DAREBEE — home workouts]"
+            " [DAREBEE - home workouts]"
             "(https://darebee.com/)\n"
-            "🧘 [NHS — exercise and activity resources]"
+            " [NHS - exercise and activity resources]"
             "(https://www.nhs.uk/better-health/get-active/how-to-be-more-active/)\n\n"
             "*General wellbeing ideas only, not medical advice.*"
         )
